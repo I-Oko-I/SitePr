@@ -9,15 +9,18 @@ import { HeadTDL_Component } from "./SubPage01/Head";
 
 
 function FuncFold (){
+    // Если данные не перерендерит список- его перерендерит хук DLC
+    // Тут заканчивается перерендер? SearchComponent
+    // Зачем  нужен preLoadedState?
 
+    // DLC
+    //поменяй удаление данных на что то другое
+    // Два массива все таки имеют одинаковую ссылку при прям копировании. Зачем нужен prev в setUseState
 
-    // функции нельзя называть одинаково. Не перезаписывается
 
 
     return (
         <>
-            {/* <button onClick={clearLS}>очисти</button> */}
-            {/* <Head_TDL></Head_TDL> */}
             <HeadTDL_Component></HeadTDL_Component>
             <br />
             <SearchTDL_Component></SearchTDL_Component>
@@ -28,6 +31,3 @@ function FuncFold (){
 }
 
 export default FuncFold
-
-
-// Спроси как работают перерендеры

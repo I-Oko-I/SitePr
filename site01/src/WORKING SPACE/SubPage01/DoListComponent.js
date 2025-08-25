@@ -22,9 +22,8 @@ export let DoListTDL_Component = ()=>{
     // 
     let DoComponent = ({data,id})=>{
 
-        // data-массив объектов
-        console.log("рендер компонента")
-        console.log(data)
+        console.log("рендер компонента c id: " + id)
+        // console.log(data)
 
         data = Object.assign({},data)
 
@@ -49,26 +48,15 @@ export let DoListTDL_Component = ()=>{
 
             changeD_TDL(data,id)
 
-            // Если данные не перерендерит список- его перерендерит хук
         }
 
         let deleteFunc = ()=>{
 
             deleteD_TDL(id)
 
-            //поменяй удаление данных на что то другое
-
-            // Два массива все таки имеют одинаковую ссылку при прям копировании. Зачем нужен prev в setUseState
-
-            // setDoListData(prev => {
-            //     let temp = prev
-            //     temp.splice(id,1)
-            //     return temp
-            // })
-
-            console.log("удаление объекта")
-            console.log(id)
-            console.log(selectorTodoLst)
+            console.log("удаление объекта " + id)
+            // console.log(id)
+            // console.log(selectorTodoLst)
         }
 
         return<>

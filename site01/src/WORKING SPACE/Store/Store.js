@@ -12,10 +12,6 @@ export let store = configureStore ({
     // preloadedState: {...stateLocSt, Object.value(state_TDL)[0]}/*выводит ошибку P.S. разархивируй 16-17*/
 })
 
-// let state_TDL = getAllNameLocSt()
-// let stateLocSt= store.getState()
-// stateLocSt[   Object.keys(state_TDL)[0]  ] = Object.values(state_TDL) [0]
-
 
 store.subscribe(() => {
     let dataState = store.getState().Sl_ToDoLst
@@ -23,11 +19,3 @@ store.subscribe(() => {
     console.log(dataState)
     setNameLocSt(dataState)
 })
-// что я хочу, чтобы отображалось?
-
-
-// сделать todo лист с local storage 
-// удалить добавить, сделано, несделано, фильтр по сделанности, статистика
-
-// добавь слайс
-// разберись с getstate

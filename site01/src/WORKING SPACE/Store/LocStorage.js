@@ -12,8 +12,6 @@ export const getNameLocSt = () => JSON.parse(localStorage.getItem(storageID))
 // agile
 
 
-// export const getNameLocSt = (name) => {console.log(name); return{}}
-
 export const setNameLocSt = (obj) => {
 
 
@@ -21,7 +19,5 @@ export const setNameLocSt = (obj) => {
 
 }
 
-
-// export const delAllNameLocSt = () => localStorage.clear(storageID)
 
 
