@@ -1,45 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setNameLocSt, getNameLocSt, deleteNameLocSt, getAllNameLocSt } from "../LocStorage"
+import { setNameLocSt, getNameLocSt,} from "./LocStorage"
 // import /*добавь функции local storage */
 
-let initialState = {}
+// let initialState = [{description: "Проверь первый ком", status:false},{description: "Работает второй пункт?", status:false}]
+let initialState =  getNameLocSt
 
 let sliceTodoLst = createSlice({
     name: "sliceTodoLst",
     initialState:initialState,
     reducers: {
-        show_TDL:(state, name)=> {
-            console.log (getNameLocSt(name))},
-        addChange_TDL:(state, obj)=> {
-            // console.log(obj.payload)
-            let objFltrd= obj.payload
-            objFltrd={[objFltrd.id]:objFltrd}
-            console.log(objFltrd)
-            let newStorage = state
-            let key_newStorage = Object.keys(objFltrd)[0]
-            newStorage[key_newStorage] = objFltrd[key_newStorage]
-            state = newStorage
+        add_TDL:(state, data)=> {
+            // console.log("slice добавление")
+            // console.log(data.payload)
+            state.push(data.payload)
         },
-        delete_TDL:(state, name)=>{
-            // console.log(state)
-            let dataFltrd = name.payload
-            if(name.payload!==undefined){
-                delete state[dataFltrd]
-            }else{state={}}
-            // console.log("удалить")
-            // console.log(state)
-            // почему null. Знает ли какой тип у null?
+        change_TDL:(state, action)=> {
+            // console.log("slice изменение")
+
+            let id = action.payload.id
+            let obj = action.payload.obj
+
+            state.splice(id,1,obj)
+
+        },
+        delete_TDL:(state, id)=>{
+            // console.log("slice удаление")
+            state.splice(id.payload,1)
         },
     }
 })
 
-// state это все что в моем поисковике. Возможно есть вещив локал.сторе за пределами его- тогда они в состоянии не будут
-// добавляем: перекидываем инфу в локалку. из локалки передаем правильные данные в state. state работает в fold.
-// удаляем: перекидываем инфу в локалку, удаляем объект. из локалки передаем правильные данные в state. state работает в fold.
-// удаляем все
-// показать, показать весь список из локал стора
 export let Sl_ToDoLst = sliceTodoLst.reducer
 
-export let {show_TDL, addChange_TDL, delete_TDL, } = sliceTodoLst.actions
+export let {add_TDL, change_TDL, delete_TDL, } = sliceTodoLst.actions
 
 // проблема в locStorage. Протести locStorage

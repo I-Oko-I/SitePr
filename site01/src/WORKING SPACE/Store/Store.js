@@ -3,7 +3,7 @@ import { useSelector, useDispatch, } from "react-redux"
 import { configureStore } from "@reduxjs/toolkit";
 
 import { Sl_ToDoLst } from "./SliceLocStorage";
-import { getNameLocSt, setNameLocSt, deleteNameLocSt, getAllNameLocSt } from "../LocStorage";
+import { getNameLocSt, setNameLocSt, deleteNameLocSt, getAllNameLocSt } from "./LocStorage";
 
 export let store = configureStore ({
     reducer:{
@@ -19,9 +19,8 @@ export let store = configureStore ({
 
 store.subscribe(() => {
     let dataState = store.getState().Sl_ToDoLst
-    // console.log("subscribe данные")
+    console.log("subscribe данные")
     console.log(dataState)
-    // Спроси о суфиксе. Убери уточнение
     setNameLocSt(dataState)
 })
 // что я хочу, чтобы отображалось?
